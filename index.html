@@ -4,11 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
     <title>Vue First App</title>
 </head>
 
 <body>
-    <h1>Vuejs</h1>
+    <div id="bmi" class="sa-bmi">
+        <div class="container">
+            <h1 class="sa-head">BMI Calculator</h1>
+            <div class="sa-body sa-list">
+                <section class="sa-screen sa-item">
+                    <div class="select-gender">
+                        <h2 class="sa-title">select your <span>gender</span></h2>
+                        <div class="sa-btn-group">
+                            <button type="submit" class="btn-click gender">
+                                <img src="assets/images/male.jpg" alt="male">
+                                <h4 class="label">Male</h4>
+                            </button>
+                            <button type="submit" class="btn-click gender">
+                                <img src="assets/images/female.jpg" alt="female">
+                                <h4 class="label">Female</h4>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="sa-screen sa-item">
+                    <form action="">
+                        <h2 class="sa-title">Enter your <span>Height</span></h2>
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Height in cm" id=""
+                                class="form-control input-value">
+                        </div>
+                        <h2 class="sa-title">Enter your <span>Weight</span></h2>
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Weight in Kg" id=""
+                                class="form-control input-value">
+                        </div>
+                    </form>
+                </section>
+                <section class="sa-screen sa-item"></section>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

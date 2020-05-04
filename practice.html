@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Vue First App</title>
+</head>
+
+<body>
+    <div id="app" class="sa-product">
+        <h1>{{title}}</h1>
+        <p>{{description}}</p>
+        <!-- Attribute Binding -->
+        <a v-bind:href="imgLink">
+            <img v-bind:src="image" alt="">
+        </a>
+        <!-- Conditional Rendering -->
+        <p v-if="inStock > 10">In stock</p>
+        <p v-else-if="inStock <= 10 && inStock > 0">almost sold out</p>
+        <button type="button" class="btn btn-warning" v-else :disabled="!onSale">Out of stock</button>
+        <!-- more performant option for contional rendering -->
+        <p v-show="onSale">Property is on Sale!!!</p>
+        <!-- List Rendering -->
+        <ul>
+            <li v-for="detail in details">{{detail}}</li>
+        </ul>
+        <ul>
+            <li v-for="name in myNames" :key="name.lastName">{{name.firstName}}</li>
+        </ul>
+        <!-- event handling for increment on click event-->
+        <button type="submit" class="btn btn-primary" v-on:click="cartValue += 1">Increment</button>
+        <p>Cart({{cartValue}})</p>
+        <button type="submit" class="btn btn-primary" v-on:click="cartValue -= 1">Decrement</button>
+        <!-- event handling for increment on mouse over event-->
+        <ul>
+            <li v-for="gender in genders" v-on:mouseover="updateGender(gender.genImage)">{{gender.genValue}}</li>
+        </ul>
+        <img v-bind:src="images" alt="">
+        <!-- style binding -->
+        <p class="color-box" v-for="color in colors"
+            v-bind:style="[{backgroundColor:color.variantColor},color.colorBox]"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
