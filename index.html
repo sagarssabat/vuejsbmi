@@ -31,20 +31,33 @@
                     </div>
                 </section>
                 <section class="sa-screen sa-item">
-                    <form action="">
+                    <form>
+                        <h2 class="sa-title">Enter your <span>Name</span></h2>
+                        <div class="form-group">
+                            <input type="text" value="" placeholder="Eg: John Doe" id="username"
+                                class="form-control input-value">
+                        </div>
                         <h2 class="sa-title">Enter your <span>Height</span></h2>
                         <div class="form-group">
-                            <input type="text" value="" placeholder="Height in cm" id=""
+                            <input type="text" value="" placeholder="Height in cm" id="userheight"
                                 class="form-control input-value">
                         </div>
                         <h2 class="sa-title">Enter your <span>Weight</span></h2>
                         <div class="form-group">
-                            <input type="text" value="" placeholder="Weight in Kg" id=""
+                            <input type="text" value="" placeholder="Weight in Kg" id="userweight"
                                 class="form-control input-value">
                         </div>
+                        <button type="button" class="btn btn-calculate">Calculate your BMI</button>
                     </form>
                 </section>
-                <section class="sa-screen sa-item"></section>
+                <section class="sa-screen sa-item">
+                    <div class="output">
+                        <h2 class="displayname"></h2>
+                        <p class="displaybmi"></p>
+                        <!-- <p>This is considered as <span class="healthstatus">Obese.</span></p> -->
+                        <p class="healthstatus"></p>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -57,8 +70,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/app.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="js/bmi.js"></script>
 </body>
 
 </html>

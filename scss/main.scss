@@ -52,6 +52,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 button {
@@ -91,25 +92,44 @@ button {
 }
 
 .input-value {
-    width: 75%;
+    width: 90%;
     margin: 0 auto;
-    height: 150px;
+    height: 60px;
     border-radius: 20px;
     text-align: center;
-    font-size: 60px;
+    font-size: 20px;
     font-family: $black_font-family;
 
     &::placeholder {
         color: rgba(128, 128, 128, 0.3);
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        white-space: break-spaces;
-        font-size: 20px;
     }
 
     &:focus {
         border: none;
         box-shadow: 0px 0px 6px rgba(128, 128, 128, 0.3);
+    }
+}
+
+.btn-calculate {
+    background-color: #212529;
+    border-color: #212529;
+    color: $white;
+    width: 90%;
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.output {
+    font-family: $regular_font-family;
+
+    .displayname {
+        font-family: $bold_font-family;
+        font-size: 28px;
+    }
+
+    .healthstatus {
+        font-family: $medium_font-family;
     }
 }
