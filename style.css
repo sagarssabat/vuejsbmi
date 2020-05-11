@@ -2,3 +2,8 @@
     width: 40px;
     height: 40px;
 }
+
+.outOfStock {
+    text-decoration: line-through;
+    text-decoration-color: brown;
+}

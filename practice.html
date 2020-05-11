@@ -37,12 +37,16 @@
         <button type="submit" class="btn btn-primary" v-on:click="cartValue -= 1">Decrement</button>
         <!-- event handling for increment on mouse over event-->
         <ul>
-            <li v-for="gender in genders" v-on:mouseover="updateGender(gender.genImage)">{{gender.genValue}}</li>
+            <li v-for="(gender, index) in genders" v-on:mouseover="updateGender(index)">{{gender.genValue}} </li>
         </ul>
         <img v-bind:src="images" alt="">
         <!-- style binding -->
-        <p class="color-box" v-for="color in colors"
-            v-bind:style="[{backgroundColor:color.variantColor},color.colorBox]"></p>
+        <p v-for="color in colors" v-bind:style="[{backgroundColor:color.variantColor},colorBox]"></p>
+        <!-- query to ask for COLORBOX -->
+        <!-- class binding -->
+        <p class="outOfStock : !instock">Out of stock</p>
+        <!-- computed property title -->
+        <h2>{{computedtitle}}</h2>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
