@@ -21,7 +21,8 @@ var app = new Vue({
             lastName: 'Yadav'
         }],
         cartValue: 0,
-        images: "./assets/images/male.jpg",
+        // images: "./assets/images/male.jpg",
+        selectedImage: 0,
         genders: [{
             genValue: 'Male',
             genImage: "./assets/images/male.jpg",
@@ -33,16 +34,26 @@ var app = new Vue({
             variantColor: 'green'
         }, {
             variantColor: 'blue'
-        }, {
-            colorBox: {
-                width: '40px',
-                height: '40px'
-            }
-        }]
+        }],
+        colorBox: {
+            width: '40px',
+            height: '40px'
+        },
+        brand: "Vue Mastery",
+        product: "Socks"
     },
     methods: {
-        updateGender: function (genImage) {
-            this.images = genImage;
+        updateGender: function (index) {
+            this.selectedImage = index;
+            console.log(index);
+        }
+    },
+    computed: {
+        computedtitle() {
+            return this.brand + " " + this.product
+        },
+        images() {
+            return this.genders[this.selectedImage].genImage
         }
     }
 })
