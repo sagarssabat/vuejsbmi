@@ -30,9 +30,7 @@ Vue.component('product', {
                 </div>
                 <button v-on:click="addToCart" :disabled="!inStock" :class="{disabledButton:!inStock}">Add to
                     Cart</button>
-                <div class="cart">
-                    <span>Cart ({{cart}})</span>
-                </div>
+                <button v-on:click="removeFromCart">Remove cart</button>
             </div>
         </div>
     `,
@@ -57,13 +55,16 @@ Vue.component('product', {
                 variantImage: "./assets/images/vmSocks-blue-onWhite.jpg",
                 variantQuantity: 0
             }],
-            cart: 0,
             onSale: false
         }
     },
     methods: {
         addToCart: function () {
-            this.cart += 1;
+            // this.cart += 1;
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variandId);
+        },
+        removeFromCart: function () {
+            this.$emit('remove-cart', this.variants[this.selectedVariant].variandId);
         },
         updateProduct: function (index) {
             this.selectedVariant = index;
@@ -109,6 +110,19 @@ var app = new Vue({
     el: '#app',
     data: {
         premium: true,
-        messageworks: 'New prop message'
+        messageworks: 'New prop message',
+        cart: [],
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id);
+        },
+        removeItem(id) {
+            for (var i = this.cart.length - 1; i >= 0; i--) {
+                if (this.cart[i] === id) {
+                    this.cart.splice(i, 1);
+                }
+            }
+        }
     }
 })
