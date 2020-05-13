@@ -16,7 +16,7 @@
         <div class="cart">
             <span>Cart ({{cart.length}})</span>
         </div>
-        <product v-bind:premium="premium" @add-to-cart="updateCart" @remove-cart="removeItem"></product>
+        <product v-bind:premium="premium" @add-to-cart="updateCart" @remove-cart="removeItem"> </product>
         <app-message :message="messageworks"></app-message>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -32,6 +32,18 @@ Vue.component('product', {
                     Cart</button>
                 <button v-on:click="removeFromCart">Remove cart</button>
             </div>
+            <div>
+                <h2>Reviews</h2>
+                <p v-if="!reviews.length">There are no reviews yet</p>
+                <ul>
+                    <li v-for="review in reviews">
+                        <p>{{review.name}}</p>
+                        <p>{{review.rating}}</p>
+                        <p>{{review.review}}</p>
+                    </li>
+                </ul>
+            </div>
+            <product-review @review-submitted="addReview"></product-review>
         </div>
     `,
     data() {
@@ -55,7 +67,8 @@ Vue.component('product', {
                 variantImage: "./assets/images/vmSocks-blue-onWhite.jpg",
                 variantQuantity: 0
             }],
-            onSale: false
+            onSale: false,
+            reviews: [],
         }
     },
     methods: {
@@ -69,6 +82,9 @@ Vue.component('product', {
         updateProduct: function (index) {
             this.selectedVariant = index;
             // console.log(index)
+        },
+        addReview: function (productReview) {
+            this.reviews.push(productReview);
         }
     },
     computed: {
@@ -105,6 +121,64 @@ Vue.component('app-message', {
         }
     },
     template: '<div>{{message}}</div>'
+})
+Vue.component('product-review', {
+    template: `
+        <form @submit.prevent="onSubmit">
+            <p v-if="errors.length">
+                <h4>Please correct the following error(s)</h4>
+                <ul>
+                    <li v-for="error in errors">{{error}}</li>
+                </ul>
+            </p>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="name" v-model="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="review">Review:</label>
+                <textarea id="review" v-model="review" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" v-model="rating" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    `,
+    data() {
+        return {
+            name: null,
+            review: null,
+            rating: null,
+            errors: []
+        }
+    },
+    methods: {
+        onSubmit() {
+            if (this.name && this.review && this.rating) {
+                let productReview = {
+                    name: this.name,
+                    review: this.review,
+                    rating: this.rating
+                }
+                this.$emit('review-submitted', productReview)
+                this.name = null
+                this.review = null
+                this.rating = null
+            } else {
+                if (!this.name) this.errors.push("name required");
+                if (!this.review) this.errors.push("review required");
+                if (!this.rating) this.errors.push("rating required");
+            }
+        }
+    }
 })
 var app = new Vue({
     el: '#app',
